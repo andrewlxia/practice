@@ -9,28 +9,19 @@
  */
 public class Solution {
     public int sumNumbers(TreeNode root) {
-      if (root == null) 
-        return 0;
-        
       return sumNumbersRecv(root, 0);
     }
 
     private int sumNumbersRecv(TreeNode root, int preVal) {
-        assert (root != null);
+        if (root == null) {
+            return 0;
+        }
         
         int curVal = preVal*10 + root.val;
         if (root.left == null && root.right == null) {
             return curVal;
         }
         
-        int sum = 0;
-        if (root.left != null) {
-            sum += sumNumbersRecv(root.left, curVal);
-        }
-        if (root.right != null) {
-            sum += sumNumbersRecv(root.right, curVal);
-        }
-        
-        return sum;
+        return sumNumbersRecv(root.left, curVal) + sumNumbersRecv(root.right, curVal);
     }
 }
