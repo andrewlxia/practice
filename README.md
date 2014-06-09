@@ -1,4 +1,2 @@
-leetcode
-========
 
-My practice on leetcode code puzzles
+My practice on code puzzles
