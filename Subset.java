@@ -26,3 +26,29 @@ public class Solution {
         return subset;
     }
 }
+
+
+public class Solution {
+    public List<List<Integer>> subsets(int[] S) {
+        List<List<Integer>> all_subsets = new ArrayList<List<Integer>> ();
+        List<Integer> current = new ArrayList<Integer> ();
+        Arrays.sort(S);
+        
+        subsetsRecur(S, 0, all_subsets, current);
+        
+        return all_subsets;
+    }
+    
+    private void subsetsRecur(int[] S, int idx, List<List<Integer>> all_subsets, List<Integer> current) {
+        if (idx == S.length) {
+            all_subsets.add(new ArrayList<> (current));
+            return;
+        }
+        
+        subsetsRecur(S, idx+1, all_subsets, current);
+        
+        current.add(S[idx]);
+        subsetsRecur(S, idx+1, all_subsets, current);
+        current.remove(current.size()-1);
+    }
+}
