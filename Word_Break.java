@@ -5,7 +5,7 @@ public class Solution {
         return wordBreakRecur(s, dict, 0, complete);
     }
     
-    public boolean wordBreakRecur(String s, Set<String> dict, int start, Boolean [] complete){
+    private boolean wordBreakRecur(String s, Set<String> dict, int start, Boolean [] complete){
         if (start >= s.length()) {
             return true;
         }
